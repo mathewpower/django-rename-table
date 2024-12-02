@@ -27,7 +27,7 @@ def test_rename_with_alias_describe():
     operation = RenameTableWithAlias("test_table", "test_table_renamed")
     assert (
         operation.describe()
-        == f"Rename table test_table to test_table_renamed with alias"
+        == "Rename table test_table to test_table_renamed with alias"
     )
 
 
@@ -92,7 +92,7 @@ def test_remove_alias_forward(mocker):
 
 def test_remove_alias_describe():
     operation = RemoveAlias("test_table_view")
-    assert operation.describe() == f"Remove alias test_table_view"
+    assert operation.describe() == "Remove alias test_table_view"
 
 
 def test_remove_alias_unsupported_database(mocker):
