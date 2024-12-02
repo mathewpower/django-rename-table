@@ -3,16 +3,18 @@ from django.db import connection
 from django.db.migrations.state import ModelState
 
 
+_SUPPORTED_BACKEND = "postgresql"
+
+
 class UnsupportedDatabaseError(Exception):
     pass
 
 
-def ensure_supported_database(supported_backends):
+def ensure_supported_database():
     backend = connection.vendor
-    if backend not in supported_backends:
-        supported_backends_str = ", ".join(supported_backends)
+    if backend != _SUPPORTED_BACKEND:
         raise UnsupportedDatabaseError(
-            f"This operation is only supported on {supported_backends_str}. "
+            f"This operation is only supported on {_SUPPORTED_BACKEND}. "
             f"Current backend: {backend}"
         )
 
@@ -38,7 +40,7 @@ class RenameTableWithAlias(Operation):
                 break
 
     def database_forwards(self, app_label, schema_editor, from_state, to_state):
-        ensure_supported_database(["postgresql"])
+        ensure_supported_database()
         schema_editor.execute(
             f"ALTER TABLE {self.old_table_name} RENAME TO {self.new_table_name};"
         )
@@ -47,7 +49,7 @@ class RenameTableWithAlias(Operation):
         )
 
     def database_backwards(self, app_label, schema_editor, from_state, to_state):
-        ensure_supported_database(["postgresql"])
+        ensure_supported_database()
         schema_editor.execute(f"DROP VIEW {self.old_table_name};")
         schema_editor.execute(
             f"ALTER TABLE {self.new_table_name} RENAME TO {self.old_table_name};"
@@ -67,7 +69,7 @@ class RemoveAlias(Operation):
         pass
 
     def database_forwards(self, app_label, schema_editor, from_state, to_state):
-        ensure_supported_database(["postgresql"])
+        ensure_supported_database()
         schema_editor.execute(f"DROP VIEW {self.alias_name};")
 
     def database_backwards(self, app_label, schema_editor, from_state, to_state):
