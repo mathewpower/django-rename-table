@@ -16,6 +16,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Framework :: Django",
     "Framework :: Django :: 3.2",
     "Framework :: Django :: 4.0",
@@ -30,8 +31,8 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8"
-django = ">=3.2"
+python = ">=3.8,<3.13"
+django = ">=3.2,<5.2"
 
 [tool.poetry.group.dev.dependencies]
 tox = "^4.23.2"
