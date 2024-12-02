@@ -1,4 +1,5 @@
 # Django Rename Table
+[![codecov](https://codecov.io/github/mathewpower/django-rename-table/graph/badge.svg?token=FFKCTKBE4P)](https://codecov.io/github/mathewpower/django-rename-table)
 
 This package provides the ability to create (and remove) an alias of a database table.
 
