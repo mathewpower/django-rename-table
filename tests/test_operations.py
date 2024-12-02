@@ -25,7 +25,10 @@ def test_rename_table_with_alias_forward(mocker):
 
 def test_rename_with_alias_describe():
     operation = RenameTableWithAlias("test_table", "test_table_renamed")
-    assert operation.describe() == f"Rename table test_table to test_table_renamed with alias"
+    assert (
+        operation.describe()
+        == f"Rename table test_table to test_table_renamed with alias"
+    )
 
 
 def test_rename_table_with_alias_backward(mocker):
@@ -86,9 +89,10 @@ def test_remove_alias_forward(mocker):
 
     schema_editor.execute.assert_called_once_with("DROP VIEW test_table_view;")
 
+
 def test_remove_alias_describe():
     operation = RemoveAlias("test_table_view")
-    assert operation.describe() ==  f"Remove alias test_table_view"
+    assert operation.describe() == f"Remove alias test_table_view"
 
 
 def test_remove_alias_unsupported_database(mocker):
