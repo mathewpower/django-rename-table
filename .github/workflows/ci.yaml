@@ -57,6 +57,11 @@ jobs:
       - name: Run tests
         run: tox
 
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
   release:
     needs: test
     runs-on: ubuntu-latest
