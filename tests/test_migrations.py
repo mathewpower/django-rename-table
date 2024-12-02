@@ -82,7 +82,9 @@ def test_crud_on_renamed_model_with_alias_table():
         schema_editor.create_model(DynamicTable)
 
     rename_operation = RenameTableWithAlias("old_table", "new_table")
-    rename_operation.database_forwards("testapp", connection.schema_editor(), None, None)
+    rename_operation.database_forwards(
+        "testapp", connection.schema_editor(), None, None
+    )
 
     DynamicTable._meta.db_table = "old_table"
 
@@ -99,7 +101,9 @@ def test_crud_on_renamed_model_with_alias_table():
     instance.delete()
     assert not DynamicTable.objects.filter(name="Updated Entry").exists()
 
-    rename_operation.database_backwards("testapp", connection.schema_editor(), None, None)
+    rename_operation.database_backwards(
+        "testapp", connection.schema_editor(), None, None
+    )
     DynamicTable._meta.db_table = "old_table"
 
     assert "old_table" in connection.introspection.table_names()
