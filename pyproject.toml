@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "django-rename-table"
+version = "0.1.0"
+description = "Django migration operations for renaming tables with aliases and managing view aliases."
+authors = ["Mathew Power <mathew.power@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/mathewpower/django-rename-table"
+repository = "https://github.com/mathewpower/django-rename-table"
+license = "MIT"
+keywords = ["django", "migration", "operations", "database", "postgresql"]
+
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: Django",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+django = ">=3.2"
+
+[tool.poetry.group.dev.dependencies]
+tox = "^4.23.2"
+pytest = "^8.3.3"
+pytest-django = "^4.9.0"
+pytest-mock = "^3.14.0"
+ruff = "^0.8.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+documentation = "https://github.com/mathewpower/django-rename-table#readme"
+issues = "https://github.com/mathewpower/django-rename-table/issues"
