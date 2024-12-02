@@ -60,6 +60,17 @@ class Migration(migrations.Migration):
     ]
 ```
 
+## Questions
+
+### It is possible to perform write operations on a table alias?
+
+Yes, however there are limitations. Postgres support this (as far as I can see from 9.3 onwards).
+
+See `Updatable Views` in the docs - https://www.postgresql.org/docs/current/sql-createview.html.
+
+The test [tests/test_migrations.py](tests/test_migrations.py) (`test_crud_on_renamed_model_with_alias_table`)
+runs through some basic CRUD operations on a model which references a table alias.
+
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
