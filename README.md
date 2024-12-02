@@ -3,7 +3,7 @@
 <a href="https://pypi.org/project/django-rename-table" target="_blank">
     <img src="https://img.shields.io/pypi/v/django-rename-table?color=46c119&label=pypi%20package" alt="Package version">
 </a>
-<a href="https://pypi.org/project/fastapi" target="_blank">
+<a href="https://pypi.org/project/django-rename-table" target="_blank">
     <img src="https://img.shields.io/pypi/pyversions/django-rename-table.svg?color=46c119" alt="Supported Python versions">
 </a>
 
