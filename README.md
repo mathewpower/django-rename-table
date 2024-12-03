@@ -11,7 +11,7 @@ This package provides the ability to create (and remove) an alias of a database 
 
 You may wish to do this when renaming database tables and want to avoid downtime.
 
-Renaming tables on a live system can be problematic. If you run the migration to raname the table first then any
+Renaming tables on a live system can be problematic. If you run the migration to rename the table first then any
 previous running versions of the code will start to error as they can no longer find the model's table.
 
 Deploying the updated code first and then migrating would also fail for similar reasons.
