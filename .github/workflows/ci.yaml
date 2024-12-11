@@ -57,11 +57,18 @@ jobs:
       - name: Run tests
         run: tox
 
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          directory: ./reports
+          name: codecov-test-results
+          token: ${{ secrets.CODECOV_TOKEN }}
+
       - name: Upload coverage reports to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/codecov-action@v5
         with:
-          directory: ./reports
           token: ${{ secrets.CODECOV_TOKEN }}
 
   release:
